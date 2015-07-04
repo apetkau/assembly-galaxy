@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<tool_dependency>
+    <repository name="package_perl_5_18" owner="iuc" >
+        <package name="perl" version="5.18.1" prior_installation_required="True" />
+    </repository>
+</tool_dependency>
+

@@ -1,0 +1,60 @@
+<tool id="assemblystats" name="assemblystats" version="1.0.2">
+    <description>Summarise an assembly (e.g. N50 metrics)</description>
+    <requirements>
+		</requirements>
+    <command interpreter="python">
+	  assembly_stats_txt.py 
+           '$input_type' '$stats.extra_files_path'
+           '$input_type'
+           '$bucket'
+	   '$input'
+   	    '$stats'
+    '$sortedcontigs'
+    '$histogrampng' 
+    '$summedcontigspng'
+    '$histogramdata' 
+    '$summedcontigdata' 
+
+	</command>
+    <inputs>
+        <param help="Is this from an genomic (contig) or transcriptomic assembly (isotig) or are these raw reads (read)" label="Type of read" name="input_type" type="select">
+            <option selected="yes" value="contig">Contig (if from genomic assembly)</option>
+            <option value="isotig">Isotig (if from transcriptomic assembly)</option>
+            <option value="read">Raw reads from sequencer in FASTA format (useful for 454 data)</option>
+        </param>
+        <param falsevalue="" help="Use this to specify whether or not bin sizes of 1 should be used when plotting histograms" label="Output histogram with bin sizes=1" name="bucket" truevalue="-b" type="boolean" />
+        <param format="fasta" label="Source file in FASTA format" name="input" type="data" />
+        <param checked="false" help="If checked, all output files will be displayed. If not checked, only the file 'Assembly Statistics' will be provided." label="Return all output files" name="all_outputs" type="boolean" />
+    </inputs>
+    <outputs>
+        <data format="tabular" label="Assembly statistics - $input.display_name" name="stats" />
+        <data format="fasta" label="Sorted contigs - $input.display_name" name="sortedcontigs">
+            <filter>all_outputs is True</filter>
+        </data>
+        <data format="png" label="Histogram of contig sizes - $input.display_name" name="histogrampng">
+            <filter>all_outputs is True</filter>
+        </data>
+        <data format="png" label="Cumulative sum of contig sizes - $input.display_name" name="summedcontigspng">
+            <filter>all_outputs is True</filter>
+        </data>
+        <data format="tabular" label="Histogram data - $input.display_name" name="histogramdata">
+            <filter>all_outputs is True</filter>
+        </data>
+        <data format="tabular" label="Cumulative sum of contig size data - $input.display_name" name="summedcontigdata">
+            <filter>all_outputs is True</filter>
+        </data>
+    </outputs>
+    <help>
+**Summarise assembly overview** 
+
+This script is used to give summary statistics of an assembly or set of reads. Typically this is run after an assembly to evaluate gross features.
+
+
+# Gives back
+# - N50
+# - num of contigs &gt; 1 kb
+# - num of contigs
+# - Read or Contig Histogram and graphs.
+# - Summed contig length (by number of contigs, in sorted order)
+	</help>
+</tool>
