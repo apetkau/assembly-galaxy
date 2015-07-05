@@ -5,6 +5,20 @@ This repository contains a microbial *de novo* assembly workflow implemented in 
 
 ![assembly_single_end.png][]
 
+Overview
+========
+
+This workflow takes as input a set of sequence reads, in fastq format and proceeds through the following steps:
+
+1. Assembly with [SPAdes]
+2. Removing small contigs or contigs with low coverage.  Marking contigs with high coverage as potential repeat regions.
+3. Generates assembly statistics.
+
+The main output files are:
+* `contigs_with_repeats.fasta`: The assembled and filtered contigs.  Includes any identified repeat regions.
+* `contigs_with_repeats_stats`: Assembly statistics.
+* `filter_spades_repeats_summary.txt`: A summary of any of the filtered contigs, or identified repeats. 
+
 Installation
 ============
 
@@ -26,17 +40,9 @@ A few other dependencies need to be installed and made available to Galaxy and t
 * [BioPerl][]
 * [gnuplot][]
 
-Steps
------
 
-This workflow takes as input a set of sequence reads, in fastq format and proceeds through the following steps:
-
-1. Assembly with [SPAdes]
-2. Removing small contigs or contigs with low coverage.  Marking contigs with high coverage as potential repeat regions.
-3. Generates assembly statistics.
-
-Example
--------
+Example Data
+------------
 
 Example data can be downloaded from [08-5578.fastq.gz][].  Please import this data, set the filetype to `fastqsanger` and use as input to the workflow.
 
