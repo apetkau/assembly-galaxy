@@ -11,7 +11,7 @@ Installation
 Galaxy Tools
 -------------------------
 
-The tools used by this workflow can be installed from the Galaxy Test Toolshed <https://testtoolshed.g2.bx.psu.edu/view/aaronpetkau/assembly_single_end/f7cd57d1cfb0>.  This will install any of the necessary tool dependencies in Galaxy.
+The tools used by this workflow can be installed from the Galaxy Test Toolshed <https://testtoolshed.g2.bx.psu.edu/view/aaronpetkau/assembly_single_end/37f2f0461661>.  This will install any of the necessary tool dependencies in Galaxy.
 
 Workflow
 --------
