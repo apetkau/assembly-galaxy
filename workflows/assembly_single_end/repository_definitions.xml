@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<repositories description="Set of tools for a de novo assembly workflow">
+	<repository toolshed="http://toolshed.g2.bx.psu.edu" name="spades" owner="lionelguy" changeset_revision="21734680d921" />
+	<repository toolshed="http://toolshed.g2.bx.psu.edu" name="regex_find_replace" owner="jjohnson" changeset_revision="9ea374bb0350" />
+	<repository toolshed="https://testtoolshed.g2.bx.psu.edu/" name="assemblystats" owner="aaronpetkau" changeset_revision="3ee4bb1fa3b4" />
+	<repository toolshed="https://testtoolshed.g2.bx.psu.edu/" name="filter_spades_repeats" owner="aaronpetkau" changeset_revision="11c6da8c33b6" />
+</repositories>
